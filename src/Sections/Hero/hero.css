@@ -1,0 +1,41 @@
+.container {
+  position: absolute;
+  height: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.counters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  
+  grid-gap: 20px;
+}
+
+.counter-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.counters {
+  font-size: 16px;
+  text-align: center;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 8px;
+  }
+}
+
+.hero-logo {
+
+  width: 60%;
+  @media screen and (max-width: 768px) {
+    width: 80%;
+  }
+}
