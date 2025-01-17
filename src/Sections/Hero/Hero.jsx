@@ -8,7 +8,7 @@ import * as random from "maath/random/dist/maath-random.esm";
 import "./hero.css";
 import CountUp from "react-countup";
 import BackToTopButton from "../../components/BackToTop";
-import Frame44 from "../../assets/Frame44.png";
+import DDColorXLOGO from "../../assets/DDColorXLOGO.png";
 import PartnerWithUs from "./PartnerWithUs";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -407,7 +407,7 @@ const Hero = () => {
             <div className="grid" />
             <div className="orb" />
             <div className="orb" />
-            <img className="hero-logo" src={Frame44} alt="Frame44" />
+            <img className="hero-logo" src={DDColorXLOGO} alt="DDColorXLOGO" />
           </UpperContainer>
           <LowerContainer>
             <div className="w-full bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16 px-4">
