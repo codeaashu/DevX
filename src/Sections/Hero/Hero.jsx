@@ -78,8 +78,7 @@ const UpperContainer = styled.div`
   padding: 5% 5%;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0b0f1c 0%, #161d2f 100%);
-  color: white;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 
   @media only screen and (min-width: 1024px) {
     padding: 2% 5%;
@@ -89,112 +88,93 @@ const UpperContainer = styled.div`
     margin-top: 10%;
   }
 
-  /* Glowing orbs with smooth animation */
   &::before,
   &::after {
     content: "";
     position: absolute;
-    width: 70vmax;
-    height: 70vmax;
+    width: 60vmax;
+    height: 60vmax;
     border-radius: 50%;
-    background: radial-gradient(
-      circle,
-      rgba(98, 54, 255, 0.15) 0%,
-      rgba(46, 217, 255, 0.1) 40%,
-      rgba(0, 0, 0, 0) 80%
+    background: linear-gradient(
+      45deg,
+      rgba(65, 88, 208, 0.15) 0%,
+      rgba(200, 80, 192, 0.15) 50%,
+      rgba(255, 204, 112, 0.15) 100%
     );
-    animation: rotate 30s linear infinite;
+    animation: rotate 20s linear infinite;
     z-index: 1;
   }
 
   &::before {
-    top: -40%;
-    left: -20%;
-    animation-delay: 0s;
+    top: -30%;
+    left: -10%;
   }
 
   &::after {
-    bottom: -40%;
-    right: -20%;
+    bottom: -30%;
+    right: -10%;
     animation-direction: reverse;
   }
 
-  /* Animated flowing gradient waves */
-  .wave {
+  /* Animated gradient orbs */
+  .orb {
     position: absolute;
-    width: 200%;
-    height: 200%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: conic-gradient(
-      from 180deg,
-      rgba(76, 136, 255, 0.1) 0%,
-      rgba(116, 58, 213, 0.1) 50%,
-      rgba(255, 204, 112, 0.05) 100%
-    );
+    width: 40vmax;
+    height: 40vmax;
     border-radius: 50%;
-    filter: blur(100px);
-    animation: waveMove 10s ease-in-out infinite;
+    background: linear-gradient(
+      45deg,
+      rgba(76, 136, 255, 0.1) 0%,
+      rgba(116, 58, 213, 0.1) 100%
+    );
+    animation: float 5s ease-in-out infinite;
     z-index: 1;
   }
 
-  /* Particle animation */
-  .particle {
+  .orb:nth-child(1) {
+    top: -20%;
+    right: -10%;
+    animation-delay: -3s;
+  }
+
+  .orb:nth-child(2) {
+    bottom: -20%;
+    left: -10%;
+    animation-delay: -0.5s;
+  }
+
+  /* Add a subtle grid pattern */
+  .grid {
     position: absolute;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    animation: floatParticle 3s infinite ease-in-out;
-  }
-
-  .particle:nth-child(1) {
-    top: 10%;
-    left: 20%;
-    animation-delay: 0s;
-  }
-
-  .particle:nth-child(2) {
-    top: 50%;
-    left: 70%;
-    animation-delay: 0.5s;
-  }
-
-  .particle:nth-child(3) {
-    top: 80%;
-    left: 40%;
-    animation-delay: 1s;
-  }
-
-  .particle:nth-child(4) {
-    top: 30%;
-    left: 90%;
-    animation-delay: 1.5s;
-  }
-
-  .particle:nth-child(5) {
-    top: 70%;
-    left: 10%;
-    animation-delay: 2s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
   }
 
   .hero-logo {
     position: relative;
     width: auto;
-    max-width: 80%;
+    max-width: 90%;
     height: auto;
     z-index: 2;
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
-    animation: fadeInUp 1s ease-out;
+    animation: fadeInUp 0.8s ease-out;
     transition: transform 0.3s ease;
 
     &:hover {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
   }
 
-  /* Keyframe Animations */
+  /* Animations */
   @keyframes rotate {
     0% {
       transform: rotate(0deg);
@@ -204,23 +184,13 @@ const UpperContainer = styled.div`
     }
   }
 
-  @keyframes waveMove {
+  @keyframes float {
     0%,
     100% {
-      transform: translate(-50%, -50%) rotate(0deg);
+      transform: translateY(0) scale(1);
     }
     50% {
-      transform: translate(-50%, -50%) rotate(180deg);
-    }
-  }
-
-  @keyframes floatParticle {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-15px);
+      transform: translateY(-50px) scale(1.05);
     }
   }
 
@@ -240,18 +210,13 @@ const UpperContainer = styled.div`
     padding: 3% 3%;
 
     .hero-logo {
-      max-width: 90%;
+      max-width: 95%;
     }
 
     &::before,
     &::after {
-      width: 90vmax;
-      height: 90vmax;
-    }
-
-    .wave {
-      width: 150%;
-      height: 150%;
+      width: 80vmax;
+      height: 80vmax;
     }
   }
 `;
@@ -261,10 +226,15 @@ const LowerContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  margin-top: 10%;
   padding: 5% 5%;
-  background-color: #0b0f1c;
-  color: white;
+  gap: 1.5rem;
+  align-items: center;
+  @media only screen and (max-width: 768px) {
+    flex: 1;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 const benefits = [
