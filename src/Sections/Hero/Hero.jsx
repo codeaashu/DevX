@@ -404,9 +404,7 @@ const Hero = () => {
       <Section>
         <Container>
           <UpperContainer className="rounded-tl-[40px] rounded-br-[40px] overflow-hidden">
-            <div className="grid" />
-            <div className="orb" />
-            <div className="orb" />
+            
             <img className="hero-logo" src={DevDisplay} alt="DevDisplay" />
           </UpperContainer>
           <LowerContainer>
